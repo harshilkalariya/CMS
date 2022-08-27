@@ -6,16 +6,19 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using CMS.Admin.Interfaces;
 
 namespace CMS.Admin.Controllers
 {
     public class HomeController : Controller
     {
+        private readonly ICustomers _customers;
         private readonly ILogger<HomeController> _logger;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, ICustomers customers)
         {
             _logger = logger;
+            _customers = customers;
         }
 
         public IActionResult Index()
@@ -25,6 +28,8 @@ namespace CMS.Admin.Controllers
 
         public IActionResult Privacy()
         {
+            _customers.add();
+            Console.WriteLine("Called from Privacy");
             return View();
         }
 
