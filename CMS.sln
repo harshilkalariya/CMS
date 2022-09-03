@@ -3,9 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.32630.194
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CMS.Admin", "CMS.Admin\CMS.Admin.csproj", "{7A3A4648-B28F-4378-B36B-3467BCC7BF98}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CMS.Admin", "CMS.Admin\CMS.Admin.csproj", "{7A3A4648-B28F-4378-B36B-3467BCC7BF98}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CMS.Site", "CMS.Site\CMS.Site.csproj", "{0C7F9104-49A2-444E-8922-EA5AE1C83975}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CMS.Site", "CMS.Site\CMS.Site.csproj", "{0C7F9104-49A2-444E-8922-EA5AE1C83975}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CMS.Infrastructure", "CMS.Infrastructure\CMS.Infrastructure.csproj", "{61AF1B50-FF0B-4B55-9A1F-27BCB681235A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CMS.DBContext", "CMS.DBContext\CMS.DBContext.csproj", "{144A9AEC-1EE7-4096-8690-EE8FA84E96CF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CMS.BusinessLogic", "CMS.BusinessLogic\CMS.BusinessLogic.csproj", "{40B97C98-661B-4FE6-813C-C096DFBA961F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +27,18 @@ Global
 		{0C7F9104-49A2-444E-8922-EA5AE1C83975}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0C7F9104-49A2-444E-8922-EA5AE1C83975}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0C7F9104-49A2-444E-8922-EA5AE1C83975}.Release|Any CPU.Build.0 = Release|Any CPU
+		{61AF1B50-FF0B-4B55-9A1F-27BCB681235A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{61AF1B50-FF0B-4B55-9A1F-27BCB681235A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{61AF1B50-FF0B-4B55-9A1F-27BCB681235A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{61AF1B50-FF0B-4B55-9A1F-27BCB681235A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{144A9AEC-1EE7-4096-8690-EE8FA84E96CF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{144A9AEC-1EE7-4096-8690-EE8FA84E96CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{144A9AEC-1EE7-4096-8690-EE8FA84E96CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{144A9AEC-1EE7-4096-8690-EE8FA84E96CF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{40B97C98-661B-4FE6-813C-C096DFBA961F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{40B97C98-661B-4FE6-813C-C096DFBA961F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{40B97C98-661B-4FE6-813C-C096DFBA961F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{40B97C98-661B-4FE6-813C-C096DFBA961F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

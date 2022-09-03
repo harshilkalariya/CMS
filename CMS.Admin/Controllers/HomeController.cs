@@ -1,24 +1,19 @@
 ﻿using CMS.Admin.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
-using CMS.Admin.Interfaces;
+using CMS.BusinessLogic;
 
 namespace CMS.Admin.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ICustomers _customers;
         private readonly ILogger<HomeController> _logger;
 
-        public HomeController(ILogger<HomeController> logger, ICustomers customers)
+        public HomeController(ILogger<HomeController> logger)
         {
+            // Hi repo
             _logger = logger;
-            _customers = customers;
         }
 
         public IActionResult Index()
@@ -28,8 +23,6 @@ namespace CMS.Admin.Controllers
 
         public IActionResult Privacy()
         {
-            _customers.add();
-            Console.WriteLine("Called from Privacy");
             return View();
         }
 
