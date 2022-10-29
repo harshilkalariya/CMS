@@ -135,6 +135,15 @@ nav {
     height: 100%;
 }
 
+.login-form {
+    max-width: 40%;
+    margin: auto;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 15px;
+    padding: 30px;
+    margin-top: 10%;
+    border-radius: 10px;
+}
+
 @font-face {
     font-family: "Titillium Web";
     font-style: normal;
