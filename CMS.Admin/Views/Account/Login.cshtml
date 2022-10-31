@@ -24,8 +24,8 @@
                 <h1 class="text-center">Login</h1>
                 <!-- Email input -->
                 <div class="form-outline mb-4">
-                    @Html.LabelFor(x => x.Email, new { @class = "form-label" })
-                    @Html.TextBoxFor(x => x.Email, new { @class = "form-control" })
+                    <label asp-for="Email" class="form-label"></label>
+                    <input asp-for="Email" class="form-control" />
                 </div>
 
                 <!-- Password input -->
@@ -34,7 +34,7 @@
                     @Html.TextBoxFor(x => x.Password, new { @class = "form-control", @type = "password" })
                 </div>
                 <!-- Submit button -->
-                <button asp-controller="Login" asp-action="Login" type="submit" class="btn btn-primary btn-block mb-4">Log in</button>
+                <button asp-controller="Account" asp-action="Login" type="submit" class="btn btn-primary btn-block mb-4">Log in</button>
             </form>
         </main>
     </div>

@@ -1,0 +1,52 @@
+﻿@model RegisterModel;
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" />
+    <title>Login</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+<body>
+    <div class="container-fluid align-middle">
+        <main role="main">
+            <form class="login-form" method="post">
+                <h1 class="text-center">Login</h1>
+                <!-- Firstname input -->
+                <div class="form-outline mb-4">
+                    <label asp-for="Firstname" class="form-label"></label>
+                    <input asp-for="Firstname" class="form-control" />
+                </div>
+
+                <!-- Lastname input -->
+                <div class="form-outline mb-4">
+                    <label asp-for="Lastname" class="form-label"></label>
+                    <input asp-for="Lastname" class="form-control" />
+                </div>
+
+                <!-- Email input -->
+                <div class="form-outline mb-4">
+                    <label asp-for="Email" class="form-label"></label>
+                    <input asp-for="Email" class="form-control" />
+                </div>
+
+                <!-- Password input -->
+                <div class="form-outline mb-4">
+                    <label asp-for="Password" class="form-label"></label>
+                    <input asp-for="Password" class="form-control" />
+                </div>
+
+                <!-- Submit button -->
+                <button asp-controller="Account" asp-action="Register" type="submit" class="btn btn-primary btn-block mb-4">Log in</button>
+            </form>
+        </main>
+    </div>
+</body>
+</html>

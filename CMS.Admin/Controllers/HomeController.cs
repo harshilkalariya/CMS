@@ -2,9 +2,11 @@
 using Microsoft.Extensions.Logging;
 using System.Diagnostics;
 using CMS.BusinessLogic;
+using Microsoft.AspNetCore.Authorization;
 
 namespace CMS.Admin.Controllers
 {
+    [Authorize]
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
