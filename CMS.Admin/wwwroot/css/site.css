@@ -2,6 +2,14 @@
 @import url(//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css);
 @import url(https://fonts.googleapis.com/css?family=Titillium+Web:300);
 
+* {
+    font-family: "Titillium Web", sans-serif;
+}
+
+body {
+    margin-left: 60px;
+}
+
 .fa-2x {
     font-size: 2em;
 }
@@ -149,4 +157,17 @@ nav {
     font-style: normal;
     font-weight: 300;
     src: local("Titillium WebLight"), local("TitilliumWeb-Light"), url(http://themes.googleusercontent.com/static/fonts/titilliumweb/v2/anMUvcNT0H1YN4FII8wpr24bNCNEoFTpS2BTjF6FB5E.woff) format("woff");
+}
+
+
+/* Datatable CSS Override */
+
+.dataTables_filter {
+    width: 50%;
+    float: right;
+    text-align: right;
+}
+
+.dataTables_paginate{
+    float:right;
 }
