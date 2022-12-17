@@ -1,0 +1,179 @@
+﻿@model ProductCategoriesModel;
+@{
+    ViewData["Title"] = "Category";
+    ViewData["PageHeader"] = "Categories";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <div class="row text-right mt-4">
+        <div class="col-sm-12">
+            <button type="button" onclick="AddCategory()" class="btn btn-primary">Add Category</button>
+        </div>
+    </div>
+    <!-- Button HTML (to Trigger Modal) -->
+
+    <div class="bs-example">
+        <!-- Modal HTML -->
+        <div id="categoryModal" class="modal fade" tabindex="-1">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h3 class="modal-title">Add Category</h3>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <form>
+                        <div class="modal-body">
+                            <input type="hidden" value="" id="hdnCategoryId" />
+                            <h1 class="text-center"></h1>
+                            <!-- Email input -->
+                            <div class="form-outline mb-4">
+                                <label asp-for="Name" class="form-label"></label>
+                                <input asp-for="Name" id="Name" class="form-control" />
+                            </div>
+                            <div class="form-outline mb-4">
+                                <label asp-for="IsDeleted" class="form-label"></label>
+                                <input type="checkbox" asp-for="IsDeleted" id="IsDeleted" />
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                            <button type="button" class="btn btn-primary" onclick="AddUpdateProductCategory()">Save</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+    <div style="margin:0 auto;">
+        <table id="categoryDatatable" class="table datatable table-striped table-bordered dt-responsive nowrap" width="100%" cellspacing="0">
+        </table>
+    </div>
+</div>
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+
+            BindDatatable();
+
+            $(".btn").click(function () {
+                $("#categoryModal").modal('show');
+            });
+        });
+
+        function BindDatatable() {
+            var categoryDatatable = $("#categoryDatatable").DataTable({
+                "processing": true,
+                "serverSide": true,
+                "filter": true,
+                "ordering": true,
+                "ajax": {
+                    "url": "GetProductCategories",
+                    "type": "POST",
+                    "datatype": "json",
+                },
+                "columns": [
+                    { "data": "name", "name": "Name", "title": "Name", "autoWidth": true },
+                    { "data": "createdDate", "name": "CreatedDate", "title": "Created Date", "autoWidth": true },
+                    { "data": "updatedDate", "name": "UpdatedDate", "title": "Updated Date", "autoWidth": true },
+                    { "data": "isDeleted", "name": "IsDeleted", "title": "Is Deleted", "autoWidth": true },
+                    {
+                        "title": "Action",
+                        "autoWidth": true,
+                        render: function (data, type, row) {
+                            var stringButtons = "<a href='#' class='btn btn-sm btn-primary' onclick=EditCategory('" + row.id + "'); >Edit</a>";
+                            stringButtons += "<a href='#' class='btn btn-sm btn-danger ml-2' onclick=DeleteCategory(this,'" + row.id + "'); >Delete</a>";
+                            return stringButtons;
+                        }
+                    },
+                ]
+            });
+        }
+
+        function AddCategory() {
+            $(".modal-title").text("Add Category");
+        }
+
+        function DeleteCategory(e, id) {
+            swal({
+                title: "Are you sure?",
+                text: "You will not be able to recover this imaginary file!",
+                type: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#DD6B55",
+                confirmButtonText: "Yes, delete it!",
+                closeOnConfirm: false
+            },
+                function (isConfirm) {
+                    if (isConfirm) {
+                        $.ajax({
+                            type: "POST",
+                            url: "DeleteProductCategoryById",
+                            data: { categoryId: id },
+                            dataType: 'JSON',
+                            success: function (data) {
+                                swal({
+                                    title: "Deleted!",
+                                    text: "Your row has been deleted.",
+                                    type: "success",
+                                    timer: 3000
+                                });
+
+                                categoryDatatable.ajax.reload();
+                            },
+                            error: function (textStatus, errorThrown) {
+                            }
+                        });
+                    } else {
+                        swal("Cancelled", "Your imaginary file is safe :)", "info");
+                    }
+                });
+        }
+
+        function EditCategory(id) {
+            $("#hdnCategoryId").val(id);
+            $(".modal-title").text("Update Category");
+            $.ajax({
+                type: "GET",
+                data: { categoryId: id },
+                url: "GetProductCategoryById",
+                contentType: 'JSON',
+                success: function (result) {
+                    if (result.message == "Success") {
+                        $("#Name").val(result.productCategory.name);
+                        $("#IsDeleted").prop('checked', result.productCategory.isDeleted);
+                    }
+                }
+            });
+
+            $("#categoryModal").modal('show');
+        }
+
+        function AddUpdateProductCategory() {
+            var model = {
+                Id: $("#hdnCategoryId").val(),
+                Name: $("#Name").val(),
+                IsDeleted: $("#IsDeleted").prop('checked')
+            };
+            $.ajax({
+                type: "POST",
+                data: JSON.stringify(model),
+                url: "AddUpdateProductCategory",
+                contentType: "application/json",
+                success: function (result) {
+                    if (result.message == "Success") {
+                        $("#categoryDatatable").DataTable();
+                    }
+                },
+                complete: function () {
+                    $("#categoryModal").modal('hide');
+                    $('#categoryDatatable').DataTable().ajax.reload();
+                }
+            });
+        }
+
+
+    </script>
+}
+

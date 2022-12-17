@@ -33,7 +33,7 @@ nav.main-menu.expanded {
 .main-menu {
     background: #212121;
     border-right: 1px solid #e5e5e5;
-    position: absolute;
+    position: fixed;
     top: 0;
     bottom: 0;
     height: 100%;
@@ -162,12 +162,12 @@ nav {
 
 /* Datatable CSS Override */
 
-.dataTables_filter {
-    width: 50%;
-    float: right;
-    text-align: right;
+thead {
+    background-color: #212121;
+    color: white;
 }
 
-.dataTables_paginate{
-    float:right;
+.page-item.active .page-link {
+    background-color: #212121 !important;
+    border-color: #212121;
 }

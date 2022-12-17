@@ -1,9 +1,0 @@
-{
-  "name": "asp.net",
-  "private": true,
-  "dependencies": {
-  },
-  "ConnectionStrings": {
-    "DefaultConn": "Server=DESKTOP-3E6M2C7\\SQLEXPRESS;Database=CMS;userid=admin;password=root;Trusted_Connection=True;"
-  }
-}

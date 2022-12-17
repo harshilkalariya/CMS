@@ -1,4 +1,7 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using CMS.BusinessLogic.Admin;
+using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json.Linq;
+using System.Collections.Generic;
 
 namespace CMS.Admin.Controllers
 {
@@ -18,7 +21,13 @@ namespace CMS.Admin.Controllers
         [HttpPost]
         public IActionResult GetUserRoles()
         {
-            return View();
+            UserManagementService userManagement = new UserManagementService();
+            userManagement.GetUserRoles();
+
+            List<string> data = new List<string>();
+            
+            var jsonData = new { recordsFiltered = 21, recordsTotal = 40, data = data };
+            return Json(jsonData);
         }
     }
 }
