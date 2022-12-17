@@ -1,11 +1,11 @@
 ﻿using CMS.DBContext.Admin;
-using CMS.Infrastructure.Models;
 using CMS.Infrastructure.CommonHelper;
 using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Text;
 using System.Linq;
+using CMS.Infrastructure.Models.Admin;
 
 namespace CMS.BusinessLogic.Admin
 {

@@ -2,11 +2,10 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Text;
-using System.Xml.Linq;
 
-namespace CMS.Infrastructure.Models
+namespace CMS.Infrastructure.Models.Admin
 {
-    public class RegisterModel
+    public class LoginModel
     {
         public string Firstname { get; set; }
 

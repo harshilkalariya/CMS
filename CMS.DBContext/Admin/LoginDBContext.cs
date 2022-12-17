@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.IO;
 using System.Text;
-using CMS.Infrastructure.Models;
+using CMS.Infrastructure.Models.Admin;
 using Microsoft.Data.SqlClient;
 using Microsoft.Extensions.Configuration;
 

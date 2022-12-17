@@ -1,12 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
-namespace CMS.Infrastructure.Models
+namespace CMS.Infrastructure.Models.Admin
 {
     public class ProductCategoriesModel
     {
-        public int? Id { get; set; }    
+        public int? Id { get; set; }
         public string Name { get; set; }
         public DateTime? CreatedDate { get; set; }
         public DateTime? UpdatedDate { get; set; }

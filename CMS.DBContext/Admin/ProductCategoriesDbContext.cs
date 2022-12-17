@@ -1,4 +1,4 @@
-﻿using CMS.Infrastructure.Models;
+﻿using CMS.Infrastructure.Models.Admin;
 using Microsoft.Data.SqlClient;
 using Microsoft.Extensions.Configuration;
 using System;

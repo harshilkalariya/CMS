@@ -1,4 +1,4 @@
-﻿using CMS.Infrastructure.Models;
+﻿using CMS.Infrastructure.Models.Admin;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using NuGet.Protocol.Plugins;

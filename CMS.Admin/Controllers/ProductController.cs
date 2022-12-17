@@ -1,14 +1,9 @@
 ﻿using CMS.BusinessLogic.Admin;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
-using CMS.Infrastructure.Models;
-using System.Drawing.Printing;
-using Microsoft.EntityFrameworkCore;
 using System.Linq;
 using System;
-using Microsoft.Data.SqlClient;
-using System.Configuration;
-using NuGet.Protocol.Plugins;
+using CMS.Infrastructure.Models.Admin;
 
 namespace CMS.Admin.Controllers
 {

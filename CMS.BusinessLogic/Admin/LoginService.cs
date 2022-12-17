@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using CMS.Infrastructure.Models;
 using CMS.DBContext.Admin;
 using System.Data;
+using CMS.Infrastructure.Models.Admin;
 
 namespace CMS.BusinessLogic.Admin
 {
