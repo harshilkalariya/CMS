@@ -66,7 +66,8 @@
             var categoryDatatable = $("#categoryDatatable").DataTable({
                 "processing": true,
                 "serverSide": true,
-                "filter": true,
+                "filter": false,
+                "bLengthChange": false,
                 "ordering": true,
                 "ajax": {
                     "url": "GetProductCategories",
