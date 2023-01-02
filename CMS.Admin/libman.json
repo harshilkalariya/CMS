@@ -21,6 +21,10 @@
     {
       "library": "bootstrap-sweetalert@1.0.1",
       "destination": "wwwroot/lib/bootstrap-sweetalert/"
+    },
+    {
+      "library": "bootstrap@5.2.3",
+      "destination": "wwwroot/lib/bootstrap/"
     }
   ]
 }

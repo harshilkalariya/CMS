@@ -26,5 +26,10 @@ namespace CMS.Admin.Controllers
             return View();
         }
 
+        public IActionResult FormControls()
+        {
+            return View();
+        }
+
     }
 }
