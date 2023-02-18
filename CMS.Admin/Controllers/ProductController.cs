@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System;
 using CMS.Infrastructure.Models.Admin;
+using Microsoft.AspNetCore.Authorization;
 
 namespace CMS.Admin.Controllers
 {
@@ -14,8 +15,8 @@ namespace CMS.Admin.Controllers
             return View();
         }
 
+        //[Authorize(Roles = "Admin")]
         public IActionResult Category()
-
         {
             return View();
         }
@@ -67,7 +68,7 @@ namespace CMS.Admin.Controllers
             // Search Value from (Search box)  
             var searchValue = Request.Form["search[value]"].FirstOrDefault();
 
-            //Paging Size (10, 20, 50,100)  
+            //Paging Size (10, 20, 50,100)
             int pageSize = length != null ? Convert.ToInt32(length) : 0;
 
             int skip = start != null ? Convert.ToInt32(start) : 0;
@@ -77,11 +78,11 @@ namespace CMS.Admin.Controllers
             CategoryService categoryService = new CategoryService();
             List<ProductCategoriesModel> productCategoriesList = categoryService.GetProductCategories();
 
-            //total number of rows counts   
+            //total number of rows counts
             recordsTotal = productCategoriesList.Count();
-            //Paging   
+            //Paging
             var data = productCategoriesList.Skip(skip).Take(pageSize).ToList();
-            //Returning Json Data  
+            //Returning Json Data
             return Json(new { draw = draw, recordsFiltered = recordsTotal, recordsTotal = recordsTotal, data = data });
 
         }

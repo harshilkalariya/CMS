@@ -11,6 +11,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc.Authorization;
 
 namespace CMS.Admin
 {
@@ -38,6 +40,12 @@ namespace CMS.Admin
                 options.Password.RequireDigit = false;
             }).AddEntityFrameworkStores<AppDbContext>();
 
+            //services.AddMvc(options => {
+            //    var policy = new AuthorizationPolicyBuilder()
+            //                    .RequireAuthenticatedUser()
+            //                    .Build();
+            //    options.Filters.Add(new AuthorizeFilter(policy));
+            //}).AddXmlSerializerFormatters();
             services.AddControllersWithViews();
         }
 
@@ -57,8 +65,8 @@ namespace CMS.Admin
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseRouting();
-            app.UseAuthorization();
             app.UseAuthentication();
+            app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {

@@ -68,7 +68,7 @@
                 "serverSide": true,
                 "filter": false,
                 "bLengthChange": false,
-                "ordering": true,
+                "ordering": false,
                 "ajax": {
                     "url": "GetProductCategories",
                     "type": "POST",
@@ -84,7 +84,7 @@
                         "autoWidth": true,
                         render: function (data, type, row) {
                             var stringButtons = "<a href='#' class='btn btn-sm btn-primary' onclick=EditCategory('" + row.id + "'); >Edit</a>";
-                            stringButtons += "<a href='#' class='btn btn-sm btn-danger ml-2' onclick=DeleteCategory(this,'" + row.id + "'); >Delete</a>";
+                            stringButtons += "<a href='#' class='btn btn-sm btn-danger ms-2' onclick=DeleteCategory(this,'" + row.id + "'); >Delete</a>";
                             return stringButtons;
                         }
                     },
@@ -121,7 +121,7 @@
                                     timer: 3000
                                 });
 
-                                categoryDatatable.ajax.reload();
+                                $('#categoryDatatable').DataTable().ajax.reload();
                             },
                             error: function (textStatus, errorThrown) {
                             }

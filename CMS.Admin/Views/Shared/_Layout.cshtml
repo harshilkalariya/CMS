@@ -20,6 +20,41 @@
         <div class="area"></div>
         <nav class="main-menu">
             <ul>
+                <li class="nav-item">
+                    <a class="nav-link collapsed" href="#submenu1" data-toggle="collapse" data-target="#submenu1">Reports</a>
+                    <div class="collapse" id="submenu1" aria-expanded="false">
+                        <ul class="flex-column pl-2 nav">
+                            <li class="nav-item"><a class="nav-link py-0" href="#">Orders</a></li>
+                            <li class="nav-item">
+                                <a class="nav-link collapsed py-1" href="#submenu1sub1" data-toggle="collapse" data-target="#submenu1sub1">Customers</a>
+                                <div class="collapse" id="submenu1sub1" aria-expanded="false">
+                                    <ul class="flex-column nav pl-4">
+                                        <li class="nav-item">
+                                            <a class="nav-link p-1" href="#">
+                                                <i class="fa fa-fw fa-clock-o"></i> Daily
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link p-1" href="#">
+                                                <i class="fa fa-fw fa-dashboard"></i> Dashboard
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link p-1" href="#">
+                                                <i class="fa fa-fw fa-bar-chart"></i> Charts
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link p-1" href="#">
+                                                <i class="fa fa-fw fa-compass"></i> Areas
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
                 <li>
                     <a href="#">
                         <i class="fa fa-home fa-2x"></i>
@@ -28,15 +63,23 @@
                         </span>
                     </a>
                 </li>
-                <li class="has-subnav">
+                <li>
                     <a href="#">
                         <i class="fa fa-laptop fa-2x"></i>
                         <span class="nav-text">
-                            Products
+                            Test
                         </span>
                     </a>
                 </li>
-                <li class="has-subnav">
+                <li>
+                    <a asp-action="Users" asp-controller="UserManagement">
+                        <i class="fa fa-laptop fa-2x"></i>
+                        <span class="nav-text">
+                            Users
+                        </span>
+                    </a>
+                </li>
+                <li>
                     <a asp-action="Category" asp-controller="Product">
                         <i class="fa fa-list fa-2x"></i>
                         <span class="nav-text">
@@ -44,7 +87,7 @@
                         </span>
                     </a>
                 </li>
-                <li class="has-subnav">
+                <li>
                     <a href="#">
                         <i class="fa fa-folder-open fa-2x"></i>
                         <span class="nav-text">
